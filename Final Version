@@ -77,6 +77,7 @@ class PrintDot(keras.callbacks.Callback):
     if epoch % 100 == 0: print('')
     print('.', end='')
     
+#define a function to plot the process of model training    
 EPOCHS = 500
 def plot_history(history):
   plt.figure()
@@ -88,9 +89,10 @@ def plot_history(history):
            label = 'Val loss')
   plt.legend()
   plt.ylim([0, 5])
-  
+
+#build the model 
 model = build_model()
-model.summary()
+
 # The patience parameter is the amount of epochs to check for improvement
 early_stop = keras.callbacks.EarlyStopping(monitor='val_loss', patience=20)
 
@@ -100,7 +102,10 @@ history = model.fit(x_train, y_train, epochs=EPOCHS,
 
 plot_history(history)
 
+#use model to predict
 test_predictions = model.predict(test_data).flatten()
+
+#change log value to the final result
 for i in range(100):
     test_predictions[i]=math.exp(test_predictions[i])
 
