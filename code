@@ -111,6 +111,6 @@ for i in range(100):
 
 #output the result
 submission = pd.DataFrame({'time':test_predictions})   
-submission.to_csv('submission2.csv',columns=['time'],header=True, index=True,index_label='Id')
+submission.to_csv('submission.csv',columns=['time'],header=True, index=True,index_label='Id')
 
 
