@@ -1,7 +1,7 @@
 # 5001_kaggle
 5001 Kaggle project code
 
-This program is Python code.It is using CNN to predict the label 'time'.
+This program is Python code. It is using CNN to predict the label 'time'.
 
 Before run this code, you should import following lib:
 import pandas as pd
