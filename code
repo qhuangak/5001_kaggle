@@ -19,11 +19,11 @@ def pen(a,b):
 train_data['l1_ratio']= train_data.apply(lambda x: pen(x.penalty,x.l1_ratio),axis=1)
 test_data['l1_ratio']= test_data.apply(lambda x: pen(x.penalty,x.l1_ratio),axis=1)
 
-#one hot train data
+#one hot penalty
 train_data=pd.get_dummies(train_data)
 test_data=pd.get_dummies(test_data)
 
-#multipy max_iter,n_samples,n_features
+#multipy the value of max_iter,n_samples,n_features
 def mul_col(a,b,c):
     return a*b*c
 train_data['max_iter']=mul_col(train_data['max_iter'],train_data['n_samples'],train_data['n_features'])
@@ -37,7 +37,7 @@ test_data['n_jobs']=test_data['n_jobs'].replace([-1],[16])
 train_data.drop(['id','n_samples','n_features','random_state','alpha','n_informative','scale'],axis=1,inplace=True)
 test_data.drop(['id','n_samples','n_features','random_state','alpha','n_informative','scale'],axis=1,inplace=True)
 
-#get log value f the time
+#get log value of the time
 train_data['time']= train_data['time'].apply(lambda x: math.log(x))
 
 # drop time to y_train
